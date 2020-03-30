@@ -4,6 +4,9 @@
 /build/www/**
 /src/test/javascript/coverage/
 /src/test/javascript/PhantomJS*/
+*/pom.xml.releaseBackup
+pom.xml.releaseBackup
+release.properties
 
 ######################
 # Node
