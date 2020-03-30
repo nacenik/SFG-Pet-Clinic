@@ -12,7 +12,6 @@
     </modules>
 
     <packaging>pom</packaging>
-
     <name>sfg-pet-clinic</name>
     <description>SFG pet clinic</description>
 
