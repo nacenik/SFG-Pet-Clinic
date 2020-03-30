@@ -1,0 +1,5 @@
+net/oleksin/sfgpetclinic/model/Pet.class
+net/oleksin/sfgpetclinic/model/Vet.class
+net/oleksin/sfgpetclinic/model/Person.class
+net/oleksin/sfgpetclinic/model/PetType.class
+net/oleksin/sfgpetclinic/model/Owner.class
