@@ -2,9 +2,11 @@ package net.oleksin.sfgpetclinic.services.map;
 
 import net.oleksin.sfgpetclinic.model.Pet;
 import net.oleksin.sfgpetclinic.services.PetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
 
     @Override
