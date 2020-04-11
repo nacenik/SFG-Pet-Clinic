@@ -143,3 +143,5 @@ Desktop.ini
 ######################
 .eslintcache
 /pet-clinic-web/src/main/resources/banner.txt
+/pet-clinic-data/target/
+/pet-clinic-web/target/
