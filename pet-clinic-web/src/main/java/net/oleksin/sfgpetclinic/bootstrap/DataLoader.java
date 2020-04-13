@@ -1,8 +1,10 @@
 package net.oleksin.sfgpetclinic.bootstrap;
 
 import net.oleksin.sfgpetclinic.model.Owner;
+import net.oleksin.sfgpetclinic.model.PetType;
 import net.oleksin.sfgpetclinic.model.Vet;
 import net.oleksin.sfgpetclinic.services.OwnerService;
+import net.oleksin.sfgpetclinic.services.PetTypeService;
 import net.oleksin.sfgpetclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -11,14 +13,27 @@ import org.springframework.stereotype.Component;
 public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
     @Override
     public void run(String... args) throws Exception {
+        PetType dog = new PetType();
+        dog.setName("Reks");
+        PetType saveDogPetType = petTypeService.save(dog);
+
+        PetType cat = new PetType();
+        cat.setName("Saumon");
+        PetType saveCatPetType = petTypeService.save(cat);
+
+        System.out.println("Loaded Pets.......");
+
+
         Owner owner1 = new Owner();
         owner1.setFirstName("EvGeiny");
         owner1.setLastName("Martynuk");
