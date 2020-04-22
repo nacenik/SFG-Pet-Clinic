@@ -1,10 +1,7 @@
 package net.oleksin.sfgpetclinic.bootstrap;
 
 import net.oleksin.sfgpetclinic.model.*;
-import net.oleksin.sfgpetclinic.services.OwnerService;
-import net.oleksin.sfgpetclinic.services.PetTypeService;
-import net.oleksin.sfgpetclinic.services.SpecialityService;
-import net.oleksin.sfgpetclinic.services.VetService;
+import net.oleksin.sfgpetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,13 +14,15 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
 
     public DataLoader(OwnerService ownerService, VetService vetService,
-                      PetTypeService petTypeService, SpecialityService specialityService) {
+                      PetTypeService petTypeService, SpecialityService specialityService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -86,9 +85,16 @@ public class DataLoader implements CommandLineRunner {
         nikPet.setOwner(owner2);
         nikPet.setBirthDate(LocalDate.now(ZoneId.systemDefault()));
         nikPet.setName("Marsik");
-        owner1.getPets().add(nikPet);
+        owner2.getPets().add(nikPet);
 
         ownerService.save(owner2);
+
+        Visit catVisit = new Visit();
+        catVisit.setPet(nikPet);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("Funny Kitty");
+
+        visitService.save(catVisit);
 
         System.out.println("Loaded Owners.....");
 

@@ -2,11 +2,12 @@ package net.oleksin.sfgpetclinic.services.map;
 
 import net.oleksin.sfgpetclinic.model.Visit;
 import net.oleksin.sfgpetclinic.services.VisitService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class VisitServiceMap extends AbstractMapService<Visit, Long> implements VisitService {
-
 
     @Override
     public Set<Visit> findAll() {
