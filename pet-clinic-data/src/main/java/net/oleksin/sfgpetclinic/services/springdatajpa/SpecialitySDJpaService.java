@@ -2,7 +2,7 @@ package net.oleksin.sfgpetclinic.services.springdatajpa;
 
 
 import net.oleksin.sfgpetclinic.model.Speciality;
-import net.oleksin.sfgpetclinic.model.repositories.SpecialityRepository;
+import net.oleksin.sfgpetclinic.repositories.SpecialityRepository;
 import net.oleksin.sfgpetclinic.services.SpecialityService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;

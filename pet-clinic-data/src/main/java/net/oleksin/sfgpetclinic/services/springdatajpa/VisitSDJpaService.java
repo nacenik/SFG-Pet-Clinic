@@ -1,7 +1,7 @@
 package net.oleksin.sfgpetclinic.services.springdatajpa;
 
 import net.oleksin.sfgpetclinic.model.Visit;
-import net.oleksin.sfgpetclinic.model.repositories.VisitRepository;
+import net.oleksin.sfgpetclinic.repositories.VisitRepository;
 import net.oleksin.sfgpetclinic.services.VisitService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;

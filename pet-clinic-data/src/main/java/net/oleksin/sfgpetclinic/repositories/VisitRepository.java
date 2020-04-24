@@ -1,4 +1,4 @@
-package net.oleksin.sfgpetclinic.model.repositories;
+package net.oleksin.sfgpetclinic.repositories;
 
 import net.oleksin.sfgpetclinic.model.Visit;
 import org.springframework.data.repository.CrudRepository;

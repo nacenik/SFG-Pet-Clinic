@@ -1,9 +1,9 @@
 package net.oleksin.sfgpetclinic.services.springdatajpa;
 
 import net.oleksin.sfgpetclinic.model.Owner;
-import net.oleksin.sfgpetclinic.model.repositories.OwnerRepository;
-import net.oleksin.sfgpetclinic.model.repositories.PetRepository;
-import net.oleksin.sfgpetclinic.model.repositories.PetTypeRepository;
+import net.oleksin.sfgpetclinic.repositories.OwnerRepository;
+import net.oleksin.sfgpetclinic.repositories.PetRepository;
+import net.oleksin.sfgpetclinic.repositories.PetTypeRepository;
 import net.oleksin.sfgpetclinic.services.OwnerService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
