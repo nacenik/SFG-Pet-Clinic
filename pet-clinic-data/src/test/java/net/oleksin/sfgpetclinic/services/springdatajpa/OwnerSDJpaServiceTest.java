@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.HashSet;
@@ -19,6 +18,8 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class OwnerSDJpaServiceTest {
@@ -46,11 +47,11 @@ class OwnerSDJpaServiceTest {
 
     @Test
     void findByLastName() {
-        Mockito.when(ownerRepository.findByLastName(any())).thenReturn(returnOwner);
+        when(ownerRepository.findByLastName(any())).thenReturn(returnOwner);
         Owner smith = service.findByLastName(LAST_NAME);
 
         assertEquals(LAST_NAME, smith.getLastName());
-        Mockito.verify(ownerRepository).findByLastName(any());
+        verify(ownerRepository).findByLastName(any());
     }
 
     @Test
@@ -59,7 +60,7 @@ class OwnerSDJpaServiceTest {
         owners.add(Owner.builder().id(1L).build());
         owners.add(Owner.builder().id(2L).build());
 
-        Mockito.when(ownerRepository.findAll()).thenReturn(owners);
+        when(ownerRepository.findAll()).thenReturn(owners);
 
         Set<Owner> ownerSet = service.findAll();
 
@@ -69,7 +70,7 @@ class OwnerSDJpaServiceTest {
 
     @Test
     void findById() {
-        Mockito.when(ownerRepository.findById(anyLong())).thenReturn(Optional.of(returnOwner));
+        when(ownerRepository.findById(anyLong())).thenReturn(Optional.of(returnOwner));
 
         Owner owner = service.findById(1L);
 
@@ -78,7 +79,7 @@ class OwnerSDJpaServiceTest {
 
     @Test
     void findByIdNull() {
-        Mockito.when(ownerRepository.findById(anyLong())).thenReturn(Optional.empty());
+        when(ownerRepository.findById(anyLong())).thenReturn(Optional.empty());
 
         Owner owner = service.findById(1L);
 
@@ -89,7 +90,7 @@ class OwnerSDJpaServiceTest {
     void save() {
         Owner ownerToSave = Owner.builder().id(1L).build();
 
-        Mockito.when(ownerRepository.save(any())).thenReturn(returnOwner);
+        when(ownerRepository.save(any())).thenReturn(returnOwner);
 
         Owner savedOwner = service.save(ownerToSave);
 
@@ -100,13 +101,13 @@ class OwnerSDJpaServiceTest {
     void delete() {
         service.delete(returnOwner);
 
-        Mockito.verify(ownerRepository).delete(any());
+        verify(ownerRepository).delete(any());
     }
 
     @Test
     void deleteById() {
         service.deleteById(1L);
 
-        Mockito.verify(ownerRepository).deleteById(anyLong());
+        verify(ownerRepository).deleteById(anyLong());
     }
 }
