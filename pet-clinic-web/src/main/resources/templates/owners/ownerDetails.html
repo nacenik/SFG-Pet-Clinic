@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
-<head>
-    <meta charset="UTF-8">
-    <title>Owner details</title>
-</head>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
+
 <body>
+
+
 <h2>Owner Information</h2>
+
 
 <table class="table table-striped" th:object="${owner}">
     <tr>
@@ -14,25 +16,27 @@
     </tr>
     <tr>
         <th>Address</th>
-        <td th:text="*{address}"></td>
+        <td th:text="*{address}" /></td>
     </tr>
     <tr>
         <th>City</th>
-        <td th:text="*{city}"></td>
+        <td th:text="*{city}" /></td>
     </tr>
     <tr>
         <th>Telephone</th>
-        <td th:text="*{telephone}"></td>
+        <td th:text="*{telephone}" /></td>
     </tr>
 </table>
 
-<a th:href="@{{id}/edit(id=${owner.id})}" class="btn btn-default">Edit Owner</a>
-<a th:href="@{{id}/pets/new(id=${owner.id})}" class="btn btn-default">Add New Pet</a>
+<a th:href="@{{id}/edit(id=${owner.id})}" class="btn btn-default">Edit
+    Owner</a>
+<a th:href="@{{id}/pets/new(id=${owner.id})}" class="btn btn-default">Add
+    New Pet</a>
 
-<br/>
-<br/>
-<br/>
-<h2>Pets And Visits</h2>
+<br />
+<br />
+<br />
+<h2>Pets and Visits</h2>
 
 <table class="table table-striped">
 
@@ -61,8 +65,12 @@
                     <td th:text="${visit?.description}"></td>
                 </tr>
                 <tr>
-                    <td><a th:href="@{{ownerId}/pets/{petId}/edit(ownerId=${owner.id},petId=${pet.id})}">Edit Pet</a></td>
-                    <td><a th:href="@{{ownerId}/pets/{petId}/visits/new(ownerId=${owner.id},petId=${pet.id})}">Add Visit</a></td>
+                    <td><a
+                            th:href="@{{ownerId}/pets/{petId}/edit(ownerId=${owner.id},petId=${pet.id})}">Edit
+                        Pet</a></td>
+                    <td><a
+                            th:href="@{{ownerId}/pets/{petId}/visits/new(ownerId=${owner.id},petId=${pet.id})}">Add
+                        Visit</a></td>
                 </tr>
             </table>
         </td>
@@ -71,4 +79,5 @@
 </table>
 
 </body>
+
 </html>
