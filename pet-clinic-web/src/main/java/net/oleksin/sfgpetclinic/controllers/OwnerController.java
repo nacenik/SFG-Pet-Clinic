@@ -18,7 +18,6 @@ import java.util.List;
 public class OwnerController {
     private final String VIEWS_OWNER_CREATE_OR_UPDATE_FORM = "owners/createOrUpdateOwnerForm";
     private final OwnerService ownerService;
-
     public OwnerController(OwnerService ownerService) {
         this.ownerService = ownerService;
     }
